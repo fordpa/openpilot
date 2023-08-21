@@ -13,6 +13,10 @@ runs:
     - shell: bash
       if: ${{ inputs.git_lfs == 'true' }}
       run: git lfs pull
+    
+    # setup safe directories in git
+    - shell: bash
+      run: git config --global --add safe.directory '*'
 
     # normalize the file permissions for scripts and files used within the docker build for a consistent cache
     - shell: bash
